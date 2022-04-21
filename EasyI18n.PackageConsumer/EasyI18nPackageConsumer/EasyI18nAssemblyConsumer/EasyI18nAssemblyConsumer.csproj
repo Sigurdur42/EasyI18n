@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AsswemblyConsumerMessages.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="AsswemblyConsumerMessages.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </AdditionalFiles>
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EasyI18n" Version="1.0.0" />		
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="EasyI18N.Generator" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
+	    <HintPath>..\..\..\nugetPackages\EasyI18N.Generator.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+<messages generateViewModel="yes">
+	<message key="test1">
+		<locale lang="en">test1-en</locale>
+		<locale lang="de">test1-de</locale>
+	</message>
+	<message key="test2">
+		<locale lang="en">test2-en</locale>
+		<locale lang="de">test2-de</locale>
+	</message>
+	<message key="LangName">
+		<locale lang="en">English</locale>
+		<locale lang="de">Deutsch</locale>
+	</message>
+	<message key="complexMessage">
+		<locale lang="en">
+			<![CDATA[A long
+message with " and öäü
+and multiple lines]]>
+		</locale>
+		<locale lang="de">
+			<![CDATA[Eine lange Nachricht
+mit tabs    und Anführungszeichen "'
+und mehreren Zeilen]]>
+		</locale>
+	</message>
+</messages>

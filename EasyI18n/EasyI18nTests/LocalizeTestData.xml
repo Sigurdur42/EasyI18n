@@ -1,0 +1,18 @@
+<messages>
+    <message key="test1">
+        <locale lang="en">test1-en</locale>
+        <locale lang="de">test1-de</locale>
+    </message>
+    <message key="test2">
+        <locale lang="en">test2-en</locale>
+        <locale lang="de">test2-de</locale>
+    </message>
+    <message key="LangName">
+        <locale lang="en">English</locale>
+        <locale lang="de">Deutsch</locale>
+    </message>
+	<message key="TestMessage">
+		<locale lang="en">Test message</locale>
+		<locale lang="de">Testnachricht</locale>
+	</message>
+</messages>

@@ -1,0 +1,6 @@
+<messages>
+	<message key="file2:key1">
+		<locale lang="en">test1-en</locale>
+		<locale lang="de">test1-de</locale>
+	</message>
+</messages>

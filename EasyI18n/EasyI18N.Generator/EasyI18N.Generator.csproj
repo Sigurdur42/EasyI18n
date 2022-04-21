@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>EasyI18N.CodeGenerator</PackageId>
+		<Title>EasyI18N.CodeGenerator</Title>
+		<Authors>Michael Wagner</Authors>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+
+		<!-- Found in https://dominikjeske.github.io/source-generators/ -->
+		<IsRoslynComponent>true</IsRoslynComponent>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="bin\**" />
+	  <EmbeddedResource Remove="bin\**" />
+	  <None Remove="bin\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.1.0" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3" PrivateAssets="all" />
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy bin\$(ConfigurationName)\*.nupkg ..\..\nugetPackages /y" />
+		<Exec Command="xcopy bin\$(ConfigurationName)\netstandard2.0\*.dll ..\..\nugetPackages /y" />
+	</Target>
+
+	<ItemGroup>
+	  <None Remove="bin\Debug\netstandard2.0\\EasyI18N.Generator.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="..\EasyI18n\EasyI18NFormatReader.cs" Link="EasyI18NFormatReader.cs" />
+	  <Compile Include="..\EasyI18n\Models.cs" Link="Models.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+	</ItemGroup>
+</Project>

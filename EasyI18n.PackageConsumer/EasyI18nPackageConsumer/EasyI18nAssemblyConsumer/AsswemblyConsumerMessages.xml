@@ -1,0 +1,7 @@
+﻿<messages>
+	<message key="TestMessage">
+		<locale lang="en">Test message</locale>
+		<locale lang="de">Testnachricht</locale>
+	</message>
+	
+</messages>

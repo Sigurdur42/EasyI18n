@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="LocalizeTestData-duplicateKey1.xml" />
+      <None Remove="LocalizeTestData-duplicateKey2.xml" />
+      <None Remove="LocalizeTestData.xml" />
+      <None Remove="LocalizeTestData2.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="LocalizeTestData-duplicateKey1.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <AdditionalFiles Include="LocalizeTestData-duplicateKey2.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <AdditionalFiles Include="LocalizeTestData.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <AdditionalFiles Include="LocalizeTestData2.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+        <PackageReference Include="NUnit" Version="3.13.2" />
+        <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+        <PackageReference Include="SpecFlow.NUnit" Version="3.9.58" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EasyI18N.Generator\EasyI18N.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+      <ProjectReference Include="..\EasyI18n\EasyI18n.csproj" />
+    </ItemGroup>
+
+</Project>
