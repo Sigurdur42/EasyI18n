@@ -36,11 +36,14 @@ jobs:
     - name: Test
       run: dotnet test $GITHUB_WORKSPACE/EasyI18n/EasyI18N.sln --configuration Release  --no-build --verbosity normal
 
-    - name: Create nuget package
+    - name: Create nuget package EasyI18n
       run: dotnet pack $GITHUB_WORKSPACE/EasyI18n/EasyI18N.sln --configuration Release
 
     - name: Add nuget source
       run: dotnet nuget add source --username Sigurdur42 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/OWNER/index.json"
 
-    - name: Publish nuget package
-      run: dotnet nuget push "$GITHUB_WORKSPACE/EasyI18n/bin/Release/*.nupkg" --source "github" --skip-duplicate --no-symbols true
+    - name: Publish nuget package EasyI18n
+      run: dotnet nuget push "$GITHUB_WORKSPACE/EasyI18n/EasyI18n/bin/Release/*.nupkg" --source "github" --skip-duplicate --no-symbols true
+
+    - name: Publish nuget package EasyI18n.Generator
+      run: dotnet nuget push "$GITHUB_WORKSPACE/EasyI18n/EasyI18N.Generator/bin/Release/*.nupkg" --source "github" --skip-duplicate --no-symbols true
