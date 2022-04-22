@@ -18,23 +18,29 @@ internal class GenerateCodeForXml
             ;
     }
 
-    internal GeneratedCode GenerateCode(FileInfo inputFile)
+    internal GeneratedCode GenerateCode(
+        StringBuilder builder,
+        FileInfo inputFile)
     {
         var result = new GeneratedCode();
         try
         {
             var reader = new EasyI18NFormatReader();
+
+            builder.AppendLine($"Loading file '{inputFile.FullName}'");
             var document = XDocument.Load(inputFile.FullName);
             var generateViewModel = reader.GetAttributeBool(document.Root, "generateViewModel");
-
+            builder.AppendLine($"Shall generate view model: '{generateViewModel}'");
+            
             var parts = reader.Read(document);
-
+            builder.AppendLine($"Found {parts.Length} messages");
+            
             result.Messages.AddRange(parts);
 
-            result.ExtensionClass = GenerateExtensionMethod(parts, inputFile);
+            result.ExtensionClass = GenerateExtensionMethod(builder, parts, inputFile);
             if (generateViewModel)
             {
-                result.ViewModel = GenerateViewModel(parts, inputFile);
+                result.ViewModel = GenerateViewModel(builder, parts, inputFile);
             }
             else
             {
@@ -62,54 +68,15 @@ internal class GenerateCodeForXml
         return result;
     }
 
-//     internal SingleCodeFile GenerateDiExtension(
-//         GeneratedCode[] generated,
-//         string projectName)
-//     {
-//         var result = new SingleCodeFile();
-//         try
-//         {
-//             var diLines = generated
-//                 .Select(_ => _.ViewModel.ClassName)
-//                 .Where(_ => !string.IsNullOrWhiteSpace(_))
-//                 .Select(_ => $"            _.AddSingleton<{_}>();")
-//                 .ToArray();
-//
-//             var safeProjectName = MakeSafe(projectName);
-//             result.FileName = safeProjectName + ".DiExtension.g.cs";
-//
-//             result.CodeContent = @"using Microsoft.Extensions.DependencyInjection;
-//
-// namespace EasyI18n
-// {
-//     public static partial class EasyI18NExtensions
-//     {
-//         public static void AddEasyI18N%%PROJECTNAME%%(this IServiceCollection _)
-//         {
-// %%DICONTENT%%
-//         }
-//     }
-// }"
-//                 .Replace("%%PROJECTNAME%%", safeProjectName)
-//                 .Replace("%%DICONTENT%%", string.Join(Environment.NewLine, diLines))
-//                 ;
-//
-//             result.Success = true;
-//         }
-//         catch (Exception ex)
-//         {
-//             result.Success = false;
-//             result.ErrorDetails = $"error creating di extensions for {projectName}:" + ex;
-//         }
-//
-//         return result;
-//     }
-
     private static string EscapeMessageForCode(string message)
         => message.Replace("\"", "\"\"");
 
-    private SingleCodeFile GenerateExtensionMethod(KeyMessage[] parts, FileInfo inputFile)
+    private SingleCodeFile GenerateExtensionMethod(
+        StringBuilder builder,
+        KeyMessage[] parts, 
+        FileInfo inputFile)
     {
+        builder.AppendLine("Generating extension methods...");
         var result = new SingleCodeFile();
         try
         {
@@ -177,8 +144,13 @@ internal class GenerateCodeForXml
         return result;
     }
 
-    private SingleCodeFile GenerateViewModel(KeyMessage[] parts, FileInfo inputFile)
+    private SingleCodeFile GenerateViewModel(
+        StringBuilder builder, 
+        KeyMessage[] parts, 
+        FileInfo inputFile)
     {
+        builder.AppendLine("Generating view model...");
+        
         var result = new SingleCodeFile();
         try
         {

@@ -27,7 +27,7 @@ public class Generator : ISourceGenerator
         var generator = new GenerateCodeForXml();
         foreach (var additionalText in xmlFiles)
         {
-            var _ = generator.GenerateCode(new FileInfo(additionalText.Path));
+            var _ = generator.GenerateCode(builder, new FileInfo(additionalText.Path));
             if (_.Success)
             {
                 AddGenerated(builder, context, _.ExtensionClass);
@@ -40,18 +40,6 @@ public class Generator : ISourceGenerator
 
             generated.Add(_);
         }
-
-        // var di = generator.GenerateDiExtension(
-        //     generated.ToArray(),
-        //     context.Compilation.SourceModule.ContainingSymbol.Name);
-        // if (di.Success)
-        // {
-        //     AddGenerated(builder, context, di);
-        // }
-        // else
-        // {
-        //     builder.AppendLine($"error in DI generation: {di.ErrorDetails}");
-        // }
 
         context.AddSource($"Debug.g.cs", "/*" + builder + "*/");
     }
@@ -71,9 +59,9 @@ public class Generator : ISourceGenerator
             analysisBuilder.AppendLine($"Adding code for {codeFile.FileName}...");
             context.AddSource(codeFile.FileName!, codeFile.CodeContent!);
         }
-        else
+        else if (codeFile.FileName != null)
         {
-            analysisBuilder.AppendLine($"Skipping code for {codeFile.FileName}...");
+            analysisBuilder.AppendLine($"Skipping code for '{codeFile.FileName}'...");
         }
     }
 }

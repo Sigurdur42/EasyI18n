@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text;
 using EasyI18N.Generator;
 using EasyI18N.Generator.Tests;
 using NUnit.Framework;
@@ -15,6 +16,8 @@ namespace EasyI18N.Tests
 
         private List<GeneratedCode> _generated = new();
         private GenerateCodeForXml _generator = new();
+
+        StringBuilder _logBuilder = new StringBuilder();
 
         [Given(@"The manual generator is used")]
         public void GivenTheManualGeneratorIsUsed()
@@ -62,7 +65,7 @@ namespace EasyI18N.Tests
         {
             var finalName = new FileInfo(Path.Combine(_dataDirectory.FullName, inputFileName));
 
-            _generated.Add(_generator.GenerateCode(finalName));
+            _generated.Add(_generator.GenerateCode(_logBuilder, finalName));
         }
 
         [When(@"Keys need to be translated")]
