@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Analyzer Include="..\..\..\nugetPackages\EasyI18N.Generator.dll"/>	   
+	  <Analyzer Include="..\..\..\EasyI18n\EasyI18N.Generator\bin\$(Configuration)\netstandard2.0\EasyI18N.Generator.dll" />	   
 	</ItemGroup>
 
 </Project>
