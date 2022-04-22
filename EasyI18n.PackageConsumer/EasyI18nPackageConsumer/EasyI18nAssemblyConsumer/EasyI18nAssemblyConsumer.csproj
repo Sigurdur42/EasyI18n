@@ -20,9 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Reference Include="EasyI18N.Generator" OutputItemType="Analyzer" ReferenceOutputAssembly="false">
-	    <HintPath>..\..\..\nugetPackages\EasyI18N.Generator.dll</HintPath>
-	  </Reference>
+	  <Analyzer Include="..\..\..\nugetPackages\EasyI18N.Generator.dll"/>	   
 	</ItemGroup>
 
 </Project>
