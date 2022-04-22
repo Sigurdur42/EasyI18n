@@ -1,4 +1,6 @@
 # EasyI18n
+[![.NET](https://github.com/Sigurdur42/EasyI18n/actions/workflows/CI.yml/badge.svg)](https://github.com/Sigurdur42/EasyI18n/actions/workflows/CI.yml)
+
 This project enables you to easily define localized messages, labels, etc. 
 The core concept is based on XML files in which you define your messages for each supported language. 
 Those messages then can easily be accessed in code in the currently configured language.
