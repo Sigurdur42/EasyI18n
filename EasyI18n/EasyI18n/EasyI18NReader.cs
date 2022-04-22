@@ -5,7 +5,7 @@ public interface IEasyI18NReader
     void ReadFromFile(FileInfo languageFile);
 }
 
-class EasyI18NReader : IEasyI18NReader
+public class EasyI18NReader : IEasyI18NReader
 {
     readonly IEasyI18N? _easyI18N;
 
