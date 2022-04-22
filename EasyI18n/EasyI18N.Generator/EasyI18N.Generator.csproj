@@ -29,10 +29,6 @@
 		</PackageReference>
 	</ItemGroup>
 
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="xcopy bin\$(ConfigurationName)\netstandard2.0\*.dll ..\..\nugetPackages /y" />
-	</Target>
-
 	<ItemGroup>
 		<Compile Include="..\EasyI18n\EasyI18NFormatReader.cs" Link="EasyI18NFormatReader.cs" />
 		<Compile Include="..\EasyI18n\Models.cs" Link="Models.cs" />
