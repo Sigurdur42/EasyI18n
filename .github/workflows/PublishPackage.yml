@@ -1,11 +1,8 @@
 name: Publish EasyI18n nuget packages
 
 on: 
-  workflow_dispatch:
-    #logLevel:
-    #   description: 'Log level'     
-    #   required: false
-    #   default: 'warning'
+  push:
+    branches: [ main ]
 
 
 jobs:
