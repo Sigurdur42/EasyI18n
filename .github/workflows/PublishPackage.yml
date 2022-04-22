@@ -4,9 +4,6 @@ on:
   push:
     branches: [ main ]
     
-  pull_request:
-    branches: [ main ]
-
 jobs:
   build:
 
@@ -43,7 +40,9 @@ jobs:
       run: dotnet nuget add source --username Sigurdur42 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/OWNER/index.json"
 
     - name: Publish nuget package EasyI18n
+      continue-on-error: true
       run: dotnet nuget push "$GITHUB_WORKSPACE/EasyI18n/EasyI18n/bin/Release/*.nupkg" --source "github" --skip-duplicate --no-symbols true --api-key ${{secrets.NUGET_PAT}} 
 
     - name: Publish nuget package EasyI18n.Generator
+      continue-on-error: true
       run: dotnet nuget push "$GITHUB_WORKSPACE/EasyI18n/EasyI18N.Generator/bin/Release/*.nupkg" --source "github" --skip-duplicate --no-symbols true --api-key ${{secrets.NUGET_PAT}} 
