@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyI18NCodeGenerator" Version="1.0.0" />
+    <PackageReference Include="EasyI18n" Version="1.0.0" />
+    <PackageReference Include="EasyI18N.Generator" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
