@@ -40,4 +40,4 @@ jobs:
       run: dotnet pack $GITHUB_WORKSPACE/EasyI18n/EasyI18N.sln --configuration Release
 
     - name: Publish nuget package
-      run: dotnet nuget push "$GITHUB_WORKSPACE/EasyI18n/bin/Release/*.nupkg"  --api-key ${{secrets.NUGET_PAT}} --source "github" --skip-duplicate
+      run: dotnet nuget push "$GITHUB_WORKSPACE/EasyI18n/bin/Release/*.nupkg"  --api-key ${{secrets.NUGET_PAT}} --source "github" --skip-duplicate --no-symbols true
