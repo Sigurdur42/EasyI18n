@@ -19,6 +19,8 @@ jobs:
     - name: Dump dir content      
       run: |
           dir
+          dir EasyI18n
+          echo "Workspace root -> $GITHUB_WORKSPACE"
         
     - name: Setup net6
       uses: actions/setup-dotnet@v2
@@ -26,10 +28,10 @@ jobs:
         dotnet-version: 6.0.x
         
     - name: Restore dependencies EasyI18n
-      run: dotnet restore $GITHUB_WORKSPACE\EasyI18n\EasyI18N.sln      
+      run: dotnet restore $GITHUB_WORKSPACE/EasyI18n/EasyI18n.sln      
       
     - name: Build
-      run: dotnet build $GITHUB_WORKSPACE\EasyI18n\EasyI18N.sln --configuration Release --no-restore 
+      run: dotnet build $GITHUB_WORKSPACE/EasyI18n/EasyI18n.sln --configuration Release --no-restore 
       
     - name: Test
-      run: dotnet test $GITHUB_WORKSPACE\EasyI18n\EasyI18N.sln --configuration Release  --no-build --verbosity normal
+      run: dotnet test $GITHUB_WORKSPACE/EasyI18n/EasyI18n.sln --configuration Release  --no-build --verbosity normal
