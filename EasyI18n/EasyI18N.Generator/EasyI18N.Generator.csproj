@@ -20,7 +20,8 @@
 		<RepositoryUrl>https://github.com/Sigurdur42/EasyI18n</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Description>Code generator for EasyI18n. Provides easy access to localized messages.</Description>
-		<PackageLicenseFile>C:\git\github\EasyI18n\LICENSE</PackageLicenseFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -40,7 +41,7 @@
 
 		<None Include="..\..\LICENSE">
 			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
+			<PackagePath></PackagePath>
 		</None>
 
 		<None Include="..\..\README.md">

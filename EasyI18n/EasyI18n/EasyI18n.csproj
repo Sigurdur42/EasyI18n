@@ -15,13 +15,13 @@
 		<RepositoryUrl>https://github.com/Sigurdur42/EasyI18n</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Description>An easy to use library to manage and use localized messages.</Description>
-		<PackageLicenseFile>C:\git\github\EasyI18n\LICENSE</PackageLicenseFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\..\LICENSE">
 			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
+			<PackagePath></PackagePath>
 		</None>
 		<None Include="..\..\README.md">
 		  <Pack>True</Pack>
