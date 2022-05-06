@@ -16,6 +16,7 @@
 		<RepositoryType>git</RepositoryType>
 		<Description>An easy to use library to manage and use localized messages.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
