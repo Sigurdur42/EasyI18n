@@ -8,8 +8,8 @@
 		<PackageId>EasyI18N.Generator</PackageId>
 		<Title>EasyI18NCodeGenerator</Title>
 		<Authors>Michael Wagner</Authors>
-		<AssemblyVersion>1.0.0</AssemblyVersion>
-		<FileVersion>1.0.0</FileVersion>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<FileVersion>1.0.1</FileVersion>
 		<IncludeBuildOutput>true</IncludeBuildOutput>
 		<RunPostBuildEvent>Always</RunPostBuildEvent>
 
@@ -20,6 +20,7 @@
 		<RepositoryUrl>https://github.com/Sigurdur42/EasyI18n</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Description>Code generator for EasyI18n. Provides easy access to localized messages.</Description>
+		<PackageLicenseFile>C:\git\github\EasyI18n\LICENSE</PackageLicenseFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -43,8 +44,8 @@
 		</None>
 
 		<None Include="..\..\README.md">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
 </Project>

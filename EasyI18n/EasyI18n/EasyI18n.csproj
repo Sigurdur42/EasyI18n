@@ -7,14 +7,15 @@
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<Title>EasyI18n</Title>
 		<Authors>Michael Wagner</Authors>
-		<AssemblyVersion>1.0.0</AssemblyVersion>
-		<FileVersion>1.0.0</FileVersion>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<FileVersion>1.0.1</FileVersion>
 		<RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
 		<PackageProjectUrl>https://github.com/Sigurdur42/EasyI18n</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/Sigurdur42/EasyI18n</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<Description>An easy to use library to manage and use localized messages.</Description>
+		<PackageLicenseFile>C:\git\github\EasyI18n\LICENSE</PackageLicenseFile>
 	</PropertyGroup>
 
 	<ItemGroup>
